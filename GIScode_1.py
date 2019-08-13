@@ -38,5 +38,26 @@ def area(a,b):
     
     area(8,7)
 area(6,9)    
+
+
     
-    
+choc1=milk
+choc2=dark    
+choc3=white
+
+milk=5+2
+dark=6
+white=8
+milk
+
+milk=8
+milk
+
+import math
+dir(math)
+
+math.factorial
+math.factorial(7)
+
+math.sqrt(350)
+math.exp(4)
