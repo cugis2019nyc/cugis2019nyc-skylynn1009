@@ -1,63 +1,54 @@
 # -*- coding: utf-8 -*-
 """
-Spyder Editor
+Created on Fri Aug 16 10:24:01 2019
 
-This is a temporary script file.
+@author: columbia
 """
 
-print("hello world") #greeting
-print("my name is sky")
-print("101")
-print("5*2")
-5/2
-5*2
-5+2
-5-2
-5^2
-5**2
-8/9*3
+import plotly
 
-def add(a,b):
-    add = a+b
-    print(add) 
+import pandas
 
-add(123,789)    
-def add(a,b,c):
-    add = a+b+c
-    print(add)
+from plotly.offline import plot
+
+import plotly.graph_objs as go
+
+
+wodf=pandas.read_excel("GISdata.xlsx",sheet_name = "womenOccupation")
+
+womenoccupation=go.Bar(x=wodf["occupation"],y=wodf["women"])
+plot([womenoccupation])
+
+womenoccupation=go.Bar(x=wodf["occupation"],y=wodf["women"],
+                       marker={"color":wodf["women"],
+                               "colorscale":"Jet"})
     
-add
-    
-add(967,23,56)    
-
-print("the sum of 967,23 and 56 is 1046")
-
-def area(a,b):
-    area = a*b/2
-    print("the area of a triangle with base",a, "and height",b,"is", area)
-    
-    area(8,7)
-area(6,9)    
+plot([womenoccupation])
 
 
-    
-choc1=milk
-choc2=dark    
-choc3=white
+#cancercasespresentation
 
-milk=5+2
-dark=6
-white=8
-milk
 
-milk=8
-milk
+cancercasesdf=pandas.read_excel("GISdata.xlsx",sheet_name="cancercases")
 
-import math
-dir(math)
 
-math.factorial
-math.factorial(7)
+cancercases1=go.Bar(x=cancercasesdf["CancerType"],y=cancercasesdf["Number"])
 
-math.sqrt(350)
-math.exp(4)
+
+cancercases=go.Bar(x=cancercasesdf["CancerType"], y=cancercasesdf["Number"],
+                   marker={"color":cancercasesdf["Number"],
+                           "colorscale":"Jet"})
+
+plot([cancercases])
+
+titles=go.Layout(title="CancerCasesin2018",
+                xaxis=go.layout.XAxis(title=go.layout.xaxis.Title(text="CancerType",
+                                                                   )
+    ),
+    yaxis=go.layout.YAxis(title=go.layout.yaxis.Title(text="Number",
+                                                      )
+    )
+    )
+fig=go.Figure(data=[cancercases], layout=titles)
+
+plot(fig)
