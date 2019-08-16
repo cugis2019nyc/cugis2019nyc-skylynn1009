@@ -27,6 +27,7 @@ plot([womenoccupation])
 
 
 #cancercasespresentation
+#skyr,jaelins,monserratm,danielled
 
 
 cancercasesdf=pandas.read_excel("GISdata.xlsx",sheet_name="cancercases")
